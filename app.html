@@ -43,7 +43,7 @@
         <span class="font-semibold text-sm">ForgeProp</span>
       </a>
       <div class="flex items-center gap-3 text-sm">
-        <span id="usageBadge" class="hidden sm:inline text-slate-500">5 free left this month</span>
+        <span id="usageBadge" class="hidden sm:inline text-slate-500">1 free left this month</span>
         <button id="newBtn" class="h-8 px-3 rounded-lg border border-slate-200 text-slate-700 font-medium hover:bg-slate-50 transition text-xs">New</button>
       </div>
     </div>
@@ -152,7 +152,7 @@
   <script>
     // Simple usage counter (localStorage)
     const USAGE_KEY = 'forgeprop_free_used';
-    const FREE_LIMIT = 5;
+    const FREE_LIMIT = 1;
     function getUsed() { return parseInt(localStorage.getItem(USAGE_KEY) || '0', 10); }
     function incUsed() { localStorage.setItem(USAGE_KEY, String(getUsed() + 1)); updateBadge(); }
     function updateBadge() {
@@ -221,7 +221,7 @@
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       if (getUsed() >= FREE_LIMIT) {
-        alert('Free limit reached for this month (5 proposals). Upgrade to Pro for unlimited generation.');
+        alert('Free limit reached (1 proposal this month). Upgrade to Pro for unlimited generation.');
         return;
       }
 
