@@ -1,1 +1,272 @@
-PLACEHOLDER
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ForgeProp — AI Proposals That Win Freelance Clients</title>
+  <meta name="description" content="Generate professional freelance proposals, scopes of work, and contracts in under 60 seconds. Built for solo freelancers who hate writing proposals from scratch.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            brand: {
+              50: '#f0f7ff', 100: '#e0effe', 200: '#b9dffd', 300: '#7cc5fb',
+              400: '#36a7f6', 500: '#0c8ce9', 600: '#006fc7', 700: '#0158a1',
+              800: '#064b85', 900: '#0b3f6e', 950: '#072849',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    .gradient-text {
+      background: linear-gradient(135deg, #0c8ce9 0%, #0158a1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-bg {
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(12, 140, 233, 0.15), transparent),
+        radial-gradient(ellipse 60% 40% at 80% 50%, rgba(1, 88, 161, 0.08), transparent);
+    }
+  </style>
+</head>
+<body class="font-sans text-slate-900 antialiased bg-white">
+  <nav class="fixed top-0 inset-x-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        </div>
+        <span class="font-semibold text-lg tracking-tight">ForgeProp</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+        <a href="#features" class="hover:text-slate-900 transition">Features</a>
+        <a href="#how" class="hover:text-slate-900 transition">How it works</a>
+        <a href="#pricing" class="hover:text-slate-900 transition">Pricing</a>
+        <a href="#faq" class="hover:text-slate-900 transition">FAQ</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="/app.html" class="inline-flex items-center justify-center h-9 px-4 rounded-lg bg-brand-600 text-white text-sm font-semibold hover:bg-brand-700 transition shadow-sm">Start free</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero-bg pt-28 pb-20 md:pt-36 md:pb-28">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-100 text-brand-700 text-xs font-medium mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
+          Built for solo freelancers
+        </div>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-slate-900 leading-[1.1]">
+          Proposals that win clients.<br>
+          <span class="gradient-text">Written in under a minute.</span>
+        </h1>
+        <p class="mt-6 text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
+          Stop spending 45–90 minutes on every proposal. ForgeProp turns a short brief into a professional, scoped, priced proposal that sounds like you wrote it.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="/app.html" class="w-full sm:w-auto inline-flex items-center justify-center h-12 px-8 rounded-xl bg-brand-600 text-white font-semibold hover:bg-brand-700 transition shadow-lg shadow-brand-600/25">
+            Generate your first proposal free
+          </a>
+          <a href="#sample" class="w-full sm:w-auto inline-flex items-center justify-center h-12 px-8 rounded-xl border border-slate-200 bg-white text-slate-700 font-semibold hover:bg-slate-50 transition">
+            See a sample
+          </a>
+        </div>
+        <p class="mt-4 text-sm text-slate-500">No credit card · 1 free proposal · Cancel anytime</p>
+      </div>
+    </div>
+  </header>
+
+  <section id="features" class="py-20 md:py-28">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="max-w-2xl mx-auto text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">Everything you need. Nothing you don’t.</h2>
+        <p class="mt-4 text-lg text-slate-600">Most proposal tools are built for agencies. ForgeProp is built for the solo operator.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl border border-slate-200 bg-white">
+          <h3 class="font-semibold text-lg text-slate-900">60-second generation</h3>
+          <p class="mt-2 text-slate-600 text-sm">Fill a short form. Get a complete proposal with problem, solution, deliverables, timeline, and pricing.</p>
+        </div>
+        <div class="p-6 rounded-2xl border border-slate-200 bg-white">
+          <h3 class="font-semibold text-lg text-slate-900">Sounds like you</h3>
+          <p class="mt-2 text-slate-600 text-sm">Edit any section. Export a clean PDF that looks intentional, not templated.</p>
+        </div>
+        <div class="p-6 rounded-2xl border border-slate-200 bg-white">
+          <h3 class="font-semibold text-lg text-slate-900">Scoped & priced</h3>
+          <p class="mt-2 text-slate-600 text-sm">Clear deliverables, timeline, investment, and next steps so clients can say yes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" class="py-20 md:py-28 bg-slate-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="max-w-2xl mx-auto text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">Three steps. Done.</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div><div class="text-5xl font-bold text-brand-100 mb-4">01</div><h3 class="font-semibold text-xl">Describe the work</h3><p class="mt-2 text-slate-600">Service, client context, scope, rate, timeline. Under two minutes.</p></div>
+        <div><div class="text-5xl font-bold text-brand-100 mb-4">02</div><h3 class="font-semibold text-xl">Generate & edit</h3><p class="mt-2 text-slate-600">Get a complete proposal. Tighten language. It’s your document.</p></div>
+        <div><div class="text-5xl font-bold text-brand-100 mb-4">03</div><h3 class="font-semibold text-xl">Export & send</h3><p class="mt-2 text-slate-600">Download PDF or copy text. Send. Move on to the next client.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sample" class="py-20 md:py-28">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">What a generated proposal looks like</h2>
+      </div>
+      <div class="rounded-2xl border border-slate-200 bg-white shadow-xl overflow-hidden">
+        <div class="px-8 py-6 border-b border-slate-100 bg-slate-50">
+          <p class="font-semibold text-slate-900">Website Redesign Proposal</p>
+          <p class="text-sm text-slate-500">Prepared for Acme SaaS · 2026</p>
+        </div>
+        <div class="px-8 py-8 text-sm leading-relaxed space-y-4 text-slate-700">
+          <p>Hi Alex,</p>
+          <p>Thank you for walking me through the current site performance and the drop-off in the trial-to-paid flow. Here’s a focused plan.</p>
+          <p class="font-semibold text-slate-900">Scope of work</p>
+          <ul class="list-disc list-inside space-y-1">
+            <li>UX audit of acquisition & onboarding flows</li>
+            <li>Wireframes for 6–8 key pages</li>
+            <li>High-fidelity design + performance pass</li>
+            <li>Handoff + one revision round</li>
+          </ul>
+          <p class="font-semibold text-slate-900">Investment</p>
+          <p>$8,500 fixed. 50% to begin, 50% on delivery.</p>
+          <p>Best,<br>Jordan · Independent Product Designer</p>
+        </div>
+      </div>
+      <div class="mt-8 text-center">
+        <a href="/app.html" class="inline-flex items-center justify-center h-11 px-6 rounded-xl bg-brand-600 text-white font-semibold hover:bg-brand-700 transition">Create one for your next client</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="py-20 md:py-28 bg-slate-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="max-w-2xl mx-auto text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">Simple pricing. No seat math.</h2>
+        <p class="mt-4 text-lg text-slate-600">Start free. Upgrade when the tool is saving you real hours.</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        <div class="rounded-2xl border border-slate-200 bg-white p-8">
+          <h3 class="font-semibold text-lg text-slate-900">Free</h3>
+          <p class="mt-1 text-slate-500 text-sm">Try it once</p>
+          <div class="mt-6 flex items-baseline gap-1">
+            <span class="text-4xl font-bold text-slate-900">$0</span>
+            <span class="text-slate-500">/month</span>
+          </div>
+          <ul class="mt-8 space-y-3 text-sm text-slate-700">
+            <li class="flex gap-2"><span class="text-brand-600">✓</span> 1 proposal per month</li>
+            <li class="flex gap-2"><span class="text-brand-600">✓</span> Core generation & editor</li>
+            <li class="flex gap-2"><span class="text-brand-600">✓</span> PDF export</li>
+            <li class="flex gap-2"><span class="text-brand-600">✓</span> Basic templates by niche</li>
+          </ul>
+          <a href="/app.html" class="mt-8 w-full inline-flex items-center justify-center h-11 rounded-xl border border-slate-200 font-semibold text-slate-800 hover:bg-slate-50 transition">Start free</a>
+        </div>
+        <div class="rounded-2xl border-2 border-brand-600 bg-white p-8 relative shadow-lg">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-brand-600 text-white text-xs font-semibold">Most useful</div>
+          <h3 class="font-semibold text-lg text-slate-900">Pro</h3>
+          <p class="mt-1 text-slate-500 text-sm">For freelancers who send proposals regularly</p>
+          <div class="mt-6 flex items-baseline gap-1">
+            <span class="text-4xl font-bold text-slate-900">$24</span>
+            <span class="text-slate-500">/month</span>
+          </div>
+          <p class="text-sm text-slate-500 mt-1">or $19/mo billed yearly ($228/year)</p>
+          <ul class="mt-6 space-y-3 text-sm text-slate-700">
+            <li class="flex gap-2"><span class="text-brand-600">✓</span> Unlimited proposals</li>
+            <li class="flex gap-2"><span class="text-brand-600">✓</span> Custom branding</li>
+            <li class="flex gap-2"><span class="text-brand-600">✓</span> Proposal history & reuse</li>
+            <li class="flex gap-2"><span class="text-brand-600">✓</span> Priority generation</li>
+            <li class="flex gap-2"><span class="text-brand-600">✓</span> Client notes & status tracking</li>
+          </ul>
+          <div class="mt-8 grid grid-cols-1 gap-2">
+            <button id="stripeMonthly" type="button" class="w-full h-11 rounded-xl bg-brand-600 text-white font-semibold hover:bg-brand-700 transition">Start Pro — $24/mo</button>
+            <button id="stripeYearly" type="button" class="w-full h-10 rounded-xl border border-brand-200 text-brand-700 text-sm font-semibold hover:bg-brand-50 transition">Or $19/mo billed yearly</button>
+          </div>
+        </div>
+      </div>
+      <p class="mt-8 text-center text-sm text-slate-500">Yearly plan saves $60. Cancel anytime. Secure checkout via Stripe.</p>
+    </div>
+  </section>
+
+  <section id="faq" class="py-20 md:py-28">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-3xl font-bold tracking-tight text-slate-900 text-center mb-12">Questions</h2>
+      <div class="space-y-6">
+        <div>
+          <h3 class="font-semibold text-slate-900">Do I need a credit card for the free plan?</h3>
+          <p class="mt-2 text-slate-600 text-sm">No. Free is free. One proposal a month is enough to test whether it saves you time.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-slate-900">Can I use this for Upwork?</h3>
+          <p class="mt-2 text-slate-600 text-sm">Yes. Generate a strong draft, then adapt tone and length to the platform.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-slate-900">Is my data used to train models?</h3>
+          <p class="mt-2 text-slate-600 text-sm">No. Client details stay on your device in the current MVP.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 md:py-28 bg-brand-950 text-white">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Your next proposal shouldn’t take an hour.</h2>
+      <p class="mt-4 text-lg text-brand-200">Generate the first one free.</p>
+      <a href="/app.html" class="mt-8 inline-flex items-center justify-center h-12 px-8 rounded-xl bg-white text-brand-900 font-semibold hover:bg-brand-50 transition">Start generating free</a>
+    </div>
+  </section>
+
+  <footer class="border-t border-slate-100 py-12">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-8">
+      <div>
+        <span class="font-semibold">ForgeProp</span>
+        <p class="text-sm text-slate-500 mt-2 max-w-xs">AI-assisted proposals for solo freelancers.</p>
+      </div>
+      <div class="flex gap-12 text-sm">
+        <div class="space-y-2">
+          <p class="font-medium text-slate-900">Product</p>
+          <a href="/app.html" class="block text-slate-500 hover:text-slate-800">App</a>
+          <a href="#pricing" class="block text-slate-500 hover:text-slate-800">Pricing</a>
+        </div>
+        <div class="space-y-2">
+          <p class="font-medium text-slate-900">Legal</p>
+          <a href="/privacy.html" class="block text-slate-500 hover:text-slate-800">Privacy</a>
+          <a href="/terms.html" class="block text-slate-500 hover:text-slate-800">Terms</a>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 mt-12 pt-8 border-t border-slate-100 text-sm text-slate-400">© 2026 ForgeProp. All rights reserved.</div>
+  </footer>
+
+  <script>
+    // Paste your real Stripe Payment Link URLs after creating products in Stripe Dashboard
+    const STRIPE = {
+      monthly: localStorage.getItem('fp_stripe_monthly') || 'https://buy.stripe.com/test_REPLACE_MONTHLY',
+      yearly: localStorage.getItem('fp_stripe_yearly') || 'https://buy.stripe.com/test_REPLACE_YEARLY'
+    };
+    function goStripe(plan) {
+      const url = STRIPE[plan];
+      if (!url || url.includes('REPLACE')) {
+        alert('Stripe not connected yet.\n\n1. Create products in Stripe ($24/mo + $228/yr)\n2. Create Payment Links\n3. In console: localStorage.setItem("fp_stripe_monthly", "https://buy.stripe.com/...")\n\nOpening generator for now.');
+        window.location.href = '/app.html';
+        return;
+      }
+      window.location.href = url;
+    }
+    document.getElementById('stripeMonthly')?.addEventListener('click', () => goStripe('monthly'));
+    document.getElementById('stripeYearly')?.addEventListener('click', () => goStripe('yearly'));
+  </script>
+</body>
+</html>
