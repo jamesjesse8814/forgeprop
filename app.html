@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ForgeProp — Generate Proposal</title>
   <meta name="description" content="Generate a professional freelance proposal in under 60 seconds.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -33,7 +31,6 @@
   </style>
 </head>
 <body class="font-sans text-slate-900 antialiased bg-slate-50 min-h-screen">
-  <!-- Top bar -->
   <header class="sticky top-0 z-40 bg-white border-b border-slate-200">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
       <a href="/" class="flex items-center gap-2">
@@ -51,12 +48,10 @@
 
   <main class="max-w-6xl mx-auto px-4 sm:px-6 py-8">
     <div class="grid lg:grid-cols-5 gap-8">
-      <!-- Form -->
       <div class="lg:col-span-2">
         <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sticky top-20">
           <h1 class="text-lg font-semibold text-slate-900 mb-1">New proposal</h1>
           <p class="text-sm text-slate-500 mb-6">Fill the brief. Generate. Edit. Export.</p>
-
           <form id="briefForm" class="space-y-4">
             <div>
               <label class="block text-xs font-medium text-slate-700 mb-1.5">Your name / business</label>
@@ -87,11 +82,11 @@
             </div>
             <div>
               <label class="block text-xs font-medium text-slate-700 mb-1.5">Client context & problem</label>
-              <textarea id="context" rows="3" placeholder="Series A startup. Current site is slow, trial-to-paid conversion is weak. Need better onboarding and performance." class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 resize-none" required></textarea>
+              <textarea id="context" rows="3" placeholder="Series A startup. Current site is slow, trial-to-paid conversion is weak." class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 resize-none" required></textarea>
             </div>
             <div>
               <label class="block text-xs font-medium text-slate-700 mb-1.5">Scope bullets (one per line)</label>
-              <textarea id="scope" rows="4" placeholder="UX audit&#10;Wireframes for 6–8 pages&#10;High-fidelity design&#10;Performance pass&#10;Handoff + 1 revision round" class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 resize-none" required></textarea>
+              <textarea id="scope" rows="4" placeholder="UX audit&#10;Wireframes for 6–8 pages&#10;High-fidelity design&#10;Handoff + 1 revision" class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 resize-none" required></textarea>
             </div>
             <div class="grid grid-cols-2 gap-3">
               <div>
@@ -108,23 +103,17 @@
               <input type="text" id="terms" placeholder="50% to start, 50% on delivery" class="w-full h-10 px-3 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500">
             </div>
             <button type="submit" id="generateBtn" class="w-full h-11 rounded-xl bg-brand-600 text-white font-semibold hover:bg-brand-700 transition flex items-center justify-center gap-2">
-              <svg id="btnIcon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
               <span id="btnText">Generate proposal</span>
             </button>
           </form>
         </div>
       </div>
 
-      <!-- Output -->
       <div class="lg:col-span-3">
         <div id="emptyState" class="bg-white rounded-2xl border border-dashed border-slate-200 p-12 text-center">
-          <div class="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center mx-auto mb-4">
-            <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          </div>
           <p class="font-medium text-slate-700">Your proposal will appear here</p>
-          <p class="mt-1 text-sm text-slate-500">Fill the form and click Generate. You can edit every section after.</p>
+          <p class="mt-1 text-sm text-slate-500">Fill the form and click Generate.</p>
         </div>
-
         <div id="resultPanel" class="hidden">
           <div class="flex items-center justify-between mb-4">
             <h2 class="font-semibold text-slate-900">Proposal</h2>
@@ -134,31 +123,64 @@
             </div>
           </div>
           <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-            <div class="px-6 py-4 border-b border-slate-100 bg-slate-50 flex items-center justify-between">
-              <div>
-                <p id="outTitle" class="font-semibold text-slate-900"></p>
-                <p id="outMeta" class="text-sm text-slate-500"></p>
-              </div>
-              <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700">Editable</span>
+            <div class="px-6 py-4 border-b border-slate-100 bg-slate-50">
+              <p id="outTitle" class="font-semibold text-slate-900"></p>
+              <p id="outMeta" class="text-sm text-slate-500"></p>
             </div>
             <div id="proposalBody" class="px-6 py-6 proposal-content text-sm" contenteditable="true"></div>
           </div>
-          <p class="mt-3 text-xs text-slate-400">Click into the text to edit. Changes are local until you copy or download.</p>
         </div>
       </div>
     </div>
   </main>
 
+  <div id="upgradeModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div class="absolute inset-0 bg-slate-900/50" id="upgradeBackdrop"></div>
+    <div class="relative bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 sm:p-8">
+      <button id="upgradeClose" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl">&times;</button>
+      <h2 class="text-xl font-bold text-slate-900">Free limit reached</h2>
+      <p class="mt-2 text-sm text-slate-600">You used your 1 free proposal this month. Upgrade to Pro for unlimited proposals.</p>
+      <div class="mt-6 space-y-3">
+        <button id="upgradeMonthly" class="w-full h-11 rounded-xl bg-brand-600 text-white font-semibold hover:bg-brand-700 transition">Pro Monthly — $24/mo</button>
+        <button id="upgradeYearly" class="w-full h-11 rounded-xl border border-brand-200 text-brand-700 font-semibold hover:bg-brand-50 transition">Pro Yearly — $19/mo ($228/yr)</button>
+      </div>
+      <p class="mt-4 text-xs text-slate-400 text-center">Cancel anytime. Secure checkout via Stripe.</p>
+    </div>
+  </div>
+
   <script>
-    // Simple usage counter (localStorage)
     const USAGE_KEY = 'forgeprop_free_used';
     const FREE_LIMIT = 1;
+    const STRIPE = {
+      monthly: localStorage.getItem('fp_stripe_monthly') || 'https://buy.stripe.com/test_REPLACE_MONTHLY',
+      yearly: localStorage.getItem('fp_stripe_yearly') || 'https://buy.stripe.com/test_REPLACE_YEARLY'
+    };
+    function isPro() { return localStorage.getItem('forgeprop_pro') === '1'; }
     function getUsed() { return parseInt(localStorage.getItem(USAGE_KEY) || '0', 10); }
-    function incUsed() { localStorage.setItem(USAGE_KEY, String(getUsed() + 1)); updateBadge(); }
+    function incUsed() {
+      if (isPro()) return;
+      localStorage.setItem(USAGE_KEY, String(getUsed() + 1));
+      updateBadge();
+    }
     function updateBadge() {
-      const left = Math.max(0, FREE_LIMIT - getUsed());
       const el = document.getElementById('usageBadge');
-      if (el) el.textContent = left + ' free left this month';
+      if (!el) return;
+      if (isPro()) {
+        el.textContent = 'Pro · unlimited';
+        el.classList.add('text-brand-600', 'font-medium');
+      } else {
+        el.textContent = Math.max(0, FREE_LIMIT - getUsed()) + ' free left this month';
+      }
+    }
+    function showUpgradeModal() { document.getElementById('upgradeModal').classList.remove('hidden'); }
+    function hideUpgradeModal() { document.getElementById('upgradeModal').classList.add('hidden'); }
+    function goStripe(plan) {
+      const url = STRIPE[plan];
+      if (!url || url.includes('REPLACE')) {
+        alert('Stripe Payment Links not configured yet.\n\nCreate products in Stripe Dashboard, then:\nlocalStorage.setItem("fp_stripe_monthly", "https://buy.stripe.com/...");');
+        return;
+      }
+      window.location.href = url;
     }
     updateBadge();
 
@@ -167,64 +189,43 @@
     const resultPanel = document.getElementById('resultPanel');
     const generateBtn = document.getElementById('generateBtn');
     const btnText = document.getElementById('btnText');
-    const btnIcon = document.getElementById('btnIcon');
 
     const serviceLabels = {
-      'web-design': 'Website / UI Design',
-      'web-dev': 'Web Development',
-      'branding': 'Branding & Identity',
-      'content': 'Content & Copywriting',
-      'seo': 'SEO & Content Strategy',
-      'consulting': 'Consulting & Strategy',
-      'marketing': 'Marketing & Growth',
-      'coaching': 'Coaching & Advising',
+      'web-design': 'Website / UI Design', 'web-dev': 'Web Development',
+      'branding': 'Branding & Identity', 'content': 'Content & Copywriting',
+      'seo': 'SEO & Content Strategy', 'consulting': 'Consulting & Strategy',
+      'marketing': 'Marketing & Growth', 'coaching': 'Coaching & Advising',
       'other': 'Professional Services'
     };
+
+    function escapeHtml(str) {
+      return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
 
     function buildProposal(data) {
       const service = serviceLabels[data.serviceType] || 'Professional Services';
       const title = data.projectTitle || service + ' Proposal';
       const scopeLines = data.scope.split('\n').map(l => l.trim()).filter(Boolean);
-      const scopeHtml = scopeLines.map(l => `<li>${escapeHtml(l)}</li>`).join('');
+      const scopeHtml = scopeLines.map(l => '<li>' + escapeHtml(l) + '</li>').join('');
       const terms = data.terms || '50% to begin, remainder on delivery';
       const date = new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
-
       return {
         title: title,
-        meta: `Prepared for ${data.clientName} · ${date}`,
-        html: `
-          <p>Hi ${escapeHtml(data.clientName.split(' ')[0] || data.clientName)},</p>
-          <p>Thank you for the conversation about ${escapeHtml(data.context.slice(0, 120))}${data.context.length > 120 ? '…' : ''}. The core need is clear, and the approach below is designed to deliver measurable progress without unnecessary scope.</p>
-          <h2>Recommended approach</h2>
-          <p>I recommend a focused engagement centered on ${escapeHtml(service.toLowerCase())}. The plan prioritizes the highest-impact work first so you see progress early and can course-correct if needed.</p>
-          <h2>Scope of work</h2>
-          <ul>${scopeHtml}</ul>
-          <h2>Timeline</h2>
-          <p>${escapeHtml(data.timeline)}. We’ll align on a kickoff date and a simple weekly checkpoint so nothing drifts.</p>
-          <h2>Investment</h2>
-          <p>${escapeHtml(data.price)}. ${escapeHtml(terms)}. Additional work outside this scope can be added via a short change order so expectations stay clear.</p>
-          <h2>Next step</h2>
-          <p>If this looks right, reply with any open questions or your preferred start window. Happy to hop on a short call to lock details and begin.</p>
-          <p class="mt-6">Best regards,<br><strong>${escapeHtml(data.yourName)}</strong></p>
-        `
+        meta: 'Prepared for ' + data.clientName + ' · ' + date,
+        html: '<p>Hi ' + escapeHtml((data.clientName.split(' ')[0] || data.clientName)) + ',</p>' +
+          '<p>Thank you for the conversation about ' + escapeHtml(data.context.slice(0, 120)) + (data.context.length > 120 ? '…' : '') + '. The core need is clear, and the approach below is designed to deliver measurable progress without unnecessary scope.</p>' +
+          '<h2>Recommended approach</h2><p>I recommend a focused engagement centered on ' + escapeHtml(service.toLowerCase()) + '. The plan prioritizes the highest-impact work first so you see progress early.</p>' +
+          '<h2>Scope of work</h2><ul>' + scopeHtml + '</ul>' +
+          '<h2>Timeline</h2><p>' + escapeHtml(data.timeline) + '. We will align on a kickoff date and a simple weekly checkpoint.</p>' +
+          '<h2>Investment</h2><p>' + escapeHtml(data.price) + '. ' + escapeHtml(terms) + '.</p>' +
+          '<h2>Next step</h2><p>If this looks right, reply with any open questions or your preferred start window.</p>' +
+          '<p class="mt-6">Best regards,<br><strong>' + escapeHtml(data.yourName) + '</strong></p>'
       };
-    }
-
-    function escapeHtml(str) {
-      return String(str)
-        .replace(/&/g, '&')
-        .replace(/</g, '<')
-        .replace(/>/g, '>')
-        .replace(/"/g, '"');
     }
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      if (getUsed() >= FREE_LIMIT) {
-        alert('Free limit reached (1 proposal this month). Upgrade to Pro for unlimited generation.');
-        return;
-      }
-
+      if (!isPro() && getUsed() >= FREE_LIMIT) { showUpgradeModal(); return; }
       const data = {
         yourName: document.getElementById('yourName').value.trim(),
         clientName: document.getElementById('clientName').value.trim(),
@@ -236,26 +237,18 @@
         timeline: document.getElementById('timeline').value.trim(),
         terms: document.getElementById('terms').value.trim()
       };
-
       generateBtn.disabled = true;
       btnText.textContent = 'Generating…';
-      btnIcon.classList.add('animate-pulse');
-
-      // Simulate processing time for UX
       await new Promise(r => setTimeout(r, 900 + Math.random() * 600));
-
       const result = buildProposal(data);
       document.getElementById('outTitle').textContent = result.title;
       document.getElementById('outMeta').textContent = result.meta;
       document.getElementById('proposalBody').innerHTML = result.html;
-
       emptyState.classList.add('hidden');
       resultPanel.classList.remove('hidden');
       incUsed();
-
       generateBtn.disabled = false;
       btnText.textContent = 'Generate proposal';
-      btnIcon.classList.remove('animate-pulse');
     });
 
     document.getElementById('newBtn').addEventListener('click', () => {
@@ -263,41 +256,25 @@
       emptyState.classList.remove('hidden');
       form.reset();
     });
-
     document.getElementById('copyBtn').addEventListener('click', () => {
-      const text = document.getElementById('proposalBody').innerText;
-      navigator.clipboard.writeText(text).then(() => {
+      navigator.clipboard.writeText(document.getElementById('proposalBody').innerText).then(() => {
         const btn = document.getElementById('copyBtn');
-        const orig = btn.textContent;
-        btn.textContent = 'Copied';
+        const orig = btn.textContent; btn.textContent = 'Copied';
         setTimeout(() => btn.textContent = orig, 1500);
       });
     });
-
     document.getElementById('downloadBtn').addEventListener('click', () => {
-      // Simple print-to-PDF via browser
       const body = document.getElementById('proposalBody').innerHTML;
       const title = document.getElementById('outTitle').textContent;
       const meta = document.getElementById('outMeta').textContent;
       const w = window.open('', '_blank');
-      w.document.write(`
-        <!DOCTYPE html><html><head><title>${title}</title>
-        <style>
-          body { font-family: system-ui, -apple-system, sans-serif; max-width: 640px; margin: 40px auto; padding: 0 24px; color: #1e293b; line-height: 1.65; font-size: 14px; }
-          h1 { font-size: 20px; margin-bottom: 4px; }
-          .meta { color: #64748b; font-size: 13px; margin-bottom: 28px; }
-          h2 { font-size: 15px; margin-top: 22px; margin-bottom: 6px; }
-          ul { padding-left: 20px; }
-          @media print { body { margin: 0; } }
-        </style></head><body>
-        <h1>${title}</h1>
-        <div class="meta">${meta}</div>
-        ${body}
-        <script>window.onload = () => { window.print(); }<\/script>
-        </body></html>
-      `);
+      w.document.write('<!DOCTYPE html><html><head><title>' + title + '</title><style>body{font-family:system-ui;max-width:640px;margin:40px auto;padding:0 24px;color:#1e293b;line-height:1.65;font-size:14px}h1{font-size:20px}h2{font-size:15px;margin-top:22px}</style></head><body><h1>' + title + '</h1><div style="color:#64748b;margin-bottom:28px">' + meta + '</div>' + body + '<script>window.onload=()=>window.print()<\/script></body></html>');
       w.document.close();
     });
+    document.getElementById('upgradeClose').addEventListener('click', hideUpgradeModal);
+    document.getElementById('upgradeBackdrop').addEventListener('click', hideUpgradeModal);
+    document.getElementById('upgradeMonthly').addEventListener('click', () => goStripe('monthly'));
+    document.getElementById('upgradeYearly').addEventListener('click', () => goStripe('yearly'));
   </script>
 </body>
 </html>
