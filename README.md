@@ -3,59 +3,78 @@
 **AI-assisted freelance proposal generator**  
 Proposals that win clients. Written in under a minute.
 
-## Status (2026-09-27)
+## Live product
 
-MVP website + working generator shipped as static files.
+| File | Purpose |
+|------|---------|
+| `index.html` | Marketing homepage + pricing |
+| `app.html` | Working proposal generator |
+| `success.html` | Post-Stripe checkout thank-you |
+| `privacy.html` / `terms.html` | Legal |
 
-- `index.html` — Marketing homepage
-- `app.html` — Live proposal generator (rule-based structured output, free tier via localStorage)
-- `privacy.html` / `terms.html` — Basic legal pages
+## Pricing (locked in)
 
-## How to run locally
+- **Free:** 1 proposal / month
+- **Pro:** $24 / month
+- **Pro yearly:** $19 / month equivalent ($228 / year)
 
-Open any file in a browser, or serve the folder:
+## Run locally
 
 ```bash
-npx serve .
-# or
+cd forgeprop
 python3 -m http.server 8080
+# open http://127.0.0.1:8080
 ```
 
-Then visit `http://localhost:3000` (or the port shown).
+## Deploy (free)
 
-## Deploy ($0)
+### Vercel
+1. Go to https://vercel.com/new
+2. Import `jamesjesse8814/forgeprop`
+3. Framework: Other · Build: none · Output: `.`
+4. Deploy → live URL in ~30 seconds
 
-- This repo is ready for Vercel / Netlify / Cloudflare Pages (all free tiers)
-- Connect the repo → deploy → live URL in minutes
-- Point a custom domain when ready (optional)
+### Netlify
+1. https://app.netlify.com → Add site → Import from Git
+2. Select this repo · Build command empty · Publish directory `.`
+3. Deploy
 
-No backend required for the current MVP. Generation is client-side structured templates.
+Every push to `main` redeploys automatically after you connect the repo once.
+
+## Stripe setup (required for paid upgrades)
+
+1. Create a free account at https://stripe.com
+2. **Products → Add product**
+   - Name: `ForgeProp Pro`
+   - Price 1: $24 USD / month (recurring)
+   - Price 2: $228 USD / year (recurring)
+3. For each price: **Create payment link**
+4. Copy the two Payment Link URLs (`https://buy.stripe.com/...`)
+5. On the live site, open browser console and run:
+
+```js
+localStorage.setItem('fp_stripe_monthly', 'https://buy.stripe.com/YOUR_MONTHLY_LINK');
+localStorage.setItem('fp_stripe_yearly', 'https://buy.stripe.com/YOUR_YEARLY_LINK');
+```
+
+Or edit the `STRIPE` object in `index.html` and `app.html` and redeploy.
+
+Optional: set Payment Link **After payment → redirect** to  
+`https://YOUR-DOMAIN/success.html`
+
+## How free tier works
+
+Client-side `localStorage` key `forgeprop_free_used`.  
+After 1 generation, the upgrade modal opens with Stripe checkout.
 
 ## Next product steps
 
-1. Replace rule-based generation with a real LLM call (OpenAI / Anthropic / open-source via free tier or paid API). Pass cost through usage limits.
-2. Add Supabase (or equivalent free tier) for accounts + history.
-3. Stripe Checkout for Pro ($19/mo).
-4. PDF generation via proper library (html2pdf / jsPDF / server-side).
-5. Custom branding upload for Pro.
+1. Real LLM generation (OpenAI / Anthropic) via Vercel serverless function
+2. Supabase auth + proposal history
+3. Stripe webhooks to unlock Pro in localStorage / account
+4. Custom branding upload for Pro
 
-## Business model
+## Owner
 
-- Free: 5 proposals / month
-- Pro: $19 / month (or $15 annual equivalent) — unlimited + branding + history + tracking
-
-## Acquisition (organic first)
-
-- Reddit / Indie Hackers / Twitter posts with real sample outputs
-- Long-tail SEO pages: “AI proposal generator for freelancers”, “freelance proposal template [niche]”
-- Product Hunt launch once accounts + real AI are live
-
-## Owner workload target
-
-- Launch week: high (content + outreach)
-- After 50–100 users: moderate (support + content)
-- At scale: low (automation + docs)
-
-## Legal note
-
-This is a legitimate product. Do not fabricate testimonials or revenue claims. Always disclose AI assistance where relevant.
+Repo: https://github.com/jamesjesse8814/forgeprop  
+Legitimate product. No fake testimonials or revenue claims.
